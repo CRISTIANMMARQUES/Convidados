@@ -13,7 +13,13 @@
         android:theme="@style/Theme.Convidados"
         tools:targetApi="34">
         <activity
-            android:name=".MainActivity"
+            android:name=".view.GuestFormActivity"
+            android:exported="false" />
+        <activity
+            android:name=".GuestFormActivity2"
+            android:exported="false" />
+        <activity
+            android:name=".view.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.Convidados.NoActionBar">
