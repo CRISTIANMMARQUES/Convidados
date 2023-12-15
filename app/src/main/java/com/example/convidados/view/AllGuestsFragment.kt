@@ -7,30 +7,34 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.convidados.databinding.FragmentAllGuestsBinding
+import com.example.convidados.view.adapter.GuestsAdapter
 import com.example.convidados.viewModel.AllGuestsViewModel
 
 class AllGuestsFragment : Fragment() {
 
     private var _binding: FragmentAllGuestsBinding? = null
     private val binding get() = _binding!!
+
     private lateinit var viewModel: AllGuestsViewModel
+    private val adapter = GuestsAdapter()
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, b: Bundle?): View {
+
         viewModel = ViewModelProvider(this).get(AllGuestsViewModel::class.java)
-
         _binding = FragmentAllGuestsBinding.inflate(inflater, container, false)
-        val root: View = binding.root
 
+        //Layout
+        binding.recyclerAllGuest.layoutManager = LinearLayoutManager(context)
+
+        //Adapter
+        binding.recyclerAllGuest.adapter = adapter
         viewModel.getAll()
 
         observe()
 
-        return root
+        return binding.root
     }
 
     override fun onDestroyView() {
@@ -40,7 +44,7 @@ class AllGuestsFragment : Fragment() {
 
     private fun observe(){
         viewModel.guests.observe(viewLifecycleOwner){
-            val s = ""
+            adapter.updatedGuests(it)
         }
     }
 }
