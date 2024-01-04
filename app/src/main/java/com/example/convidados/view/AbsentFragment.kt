@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.convidados.constants.DataBaseConstants
 import com.example.convidados.databinding.FragmentAbsentBinding
 import com.example.convidados.view.adapter.GuestAdapter
-import com.example.convidados.view.listener.GuestListener
+import com.example.convidados.view.listener.OnGuestListener
 import com.example.convidados.viewModel.GuestsViewModel
 
 class AbsentFragment : Fragment() {
@@ -30,7 +30,7 @@ class AbsentFragment : Fragment() {
 
         binding.recyclerGuests.adapter = adapter
 
-        val listener = object : GuestListener {
+        val listener = object : OnGuestListener {
             override fun onClick(id: Int) {
                 val intent = Intent(context, GuestFormActivity::class.java)
                 val bundle = Bundle()
