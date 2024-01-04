@@ -5,7 +5,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.convidados.databinding.RowGuestBinding
 import com.example.convidados.model.GuestModel
-import com.example.convidados.view.listener.GuestListener
 import com.example.convidados.view.viewholder.GuestViewHolder
 
 class GuestAdapter: RecyclerView.Adapter<GuestViewHolder>() {
