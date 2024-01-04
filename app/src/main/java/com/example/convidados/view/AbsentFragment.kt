@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.convidados.constants.DataBaseConstants
 import com.example.convidados.databinding.FragmentAbsentBinding
 import com.example.convidados.view.adapter.GuestAdapter
+import com.example.convidados.view.listener.GuestListener
 import com.example.convidados.viewModel.GuestsViewModel
 
 class AbsentFragment : Fragment() {
