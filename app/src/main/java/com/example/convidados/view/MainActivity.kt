@@ -3,6 +3,7 @@ package com.example.convidados.view
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.content.Intent
+import android.util.Log
 import com.example.convidados.databinding.ActivityMainBinding
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
@@ -16,11 +17,12 @@ import com.example.convidados.R
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var appBarConfiguration: AppBarConfiguration
+    private lateinit var appBarConfiguration: AppBarConfiguration //barra de aplicativo
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Log.d("MainActivity", "onCreate called")
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -45,7 +47,7 @@ class MainActivity : AppCompatActivity() {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
-            setOf(R.id.nav_all_guests, R.id.nav_present, R.id.nav_absent), drawerLayout
+            setOf(R.id.nav_all, R.id.nav_present, R.id.nav_absent), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
