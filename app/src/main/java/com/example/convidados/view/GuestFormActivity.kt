@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.devmasterteam.convidados.service.constants.GuestConstants
 import com.example.convidados.R
 import com.example.convidados.constants.DataBaseConstants
 import com.example.convidados.databinding.ActivityGuestFormBinding
@@ -51,7 +52,7 @@ class GuestFormActivity : AppCompatActivity(), View.OnClickListener {
     private fun loadData() {
         val bundle = intent.extras
         if (bundle != null) {
-            guestId = bundle.getInt(DataBaseConstants.GUEST.ID)
+            guestId = bundle.getInt(GuestConstants.GUEST.ID)
             viewModel.load(guestId)
         }
     }

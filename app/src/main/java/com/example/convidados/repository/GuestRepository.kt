@@ -34,7 +34,7 @@ class GuestRepository private constructor(context: Context) {
                 DataBaseConstants.GUEST.COLUMNS.PRESENCE
             )
 
-            val selection = DataBaseConstants.GUEST.COLUMNS.ID + "= ?"
+            val selection = DataBaseConstants.GUEST.COLUMNS.ID + " = ?"
             val args = arrayOf(id.toString())
 
             val cursor = db.query(
@@ -57,8 +57,7 @@ class GuestRepository private constructor(context: Context) {
             }
             cursor?.close()
             guest
-
-        }catch (e: Exception){
+        } catch (e: Exception) {
             guest
         }
     }
