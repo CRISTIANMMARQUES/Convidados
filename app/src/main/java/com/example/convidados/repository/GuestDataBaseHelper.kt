@@ -23,7 +23,7 @@ abstract class GuestDataBaseHelper: RoomDatabase(){
                 synchronized(GuestDataBaseHelper::class) {
                     INSTANCE =
                         Room.databaseBuilder(context, GuestDataBaseHelper::class.java, "guestdb")
-                            .addMigrations()
+                            .addMigrations(MIGRATION_1_2)
                             .allowMainThreadQueries()
                             .build()
                 }
@@ -37,19 +37,5 @@ abstract class GuestDataBaseHelper: RoomDatabase(){
 
         }
     }
-
-//class GuestDataBaseHelper(context: Context): SQLiteOpenHelper(context, NAME, null, VERSION){
-
-    /**
-     * Método executado somente uma vez quando o acesso ao banco de dados é feito pela primeira vez
-     */
-    /*override fun onCreate(db: SQLiteDatabase) {
-        db.execSQL(CREATE_TABLE_GUEST)
-    }*/
-
-    /**
-     * Método executado quando a versão do DATABASE_VERSION é alterada
-     * Dessa maneira, a aplicação sabe que o banco de dados foi alterado e é necessário rodar o script de update
-     */
 
 }
